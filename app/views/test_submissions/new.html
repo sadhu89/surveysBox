@@ -1,0 +1,15 @@
+<h1>Quiz Box</h1>
+<%= form_for(@test_submission) do |f|%>
+	<% @test.subjects.each do |subject|%>
+		<p><%=subject.name%></p>
+		<p><iframe width="560" height="315" src="https://www.youtube.com/embed/<%=subject.video_url%>" frameborder="0" allowfullscreen></iframe></p>
+		<% subject.questions.each do |question|%>
+			<p><%=question.body%></p>
+			<% question.alternatives.each do |alternative|%>
+				<p><%=alternative.content%></p>
+			<%end%>
+			<%= f.text_field :content %>
+		<%end%>
+	<%end%>
+	<%=  f.submit "Enviar"%>
+<%end%>
