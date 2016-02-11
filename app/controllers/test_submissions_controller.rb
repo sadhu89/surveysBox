@@ -3,7 +3,7 @@ class TestSubmissionsController < ApplicationController
 
   def new
     @test=Test.last
-    @test_submission=@test.test_submissions.new
+    @test_submission=@test.test_submissions.new rescue nil
   end
 
   def create
