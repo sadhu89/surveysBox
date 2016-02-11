@@ -8,9 +8,10 @@ class TestSubmissionsController < ApplicationController
 
   def create
     TestSubmission.create(test_submission_params)
+    redirect_to root_url, notice: 'Gracias por dar el examen'
   end
 
   def test_submission_params
-    params.require(:test_submission).permit(:response1, :response2)
+    params.require(:test_submission).permit!
   end
 end

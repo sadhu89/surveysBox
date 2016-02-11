@@ -5,10 +5,14 @@
 		<p><iframe width="560" height="315" src="https://www.youtube.com/embed/<%=subject.video_url%>" frameborder="0" allowfullscreen></iframe></p>
 		<% subject.questions.each do |question|%>
 			<p><%=question.body%></p>
-			<% question.alternatives.each do |alternative|%>
-				<p><%=alternative.content%></p>
+			<%=f.fields_for :responses, @test_submission.responses.new do |ff|%>
+				<%=ff.hidden_field :subject_id, :value => subject.id%>
+				<%=ff.hidden_field :question_id, :value => question.id%>
+				<% question.alternatives.each do |alternative|%>
+					<p><%=ff.radio_button :content, alternative.content %>
+					<%=alternative.content%></p>
+				<%end%>
 			<%end%>
-			<%= f.text_field :content %>
 		<%end%>
 	<%end%>
 	<%=  f.submit "Enviar"%>
