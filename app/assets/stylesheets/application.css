@@ -16,3 +16,4 @@
  *= require reveal-theme/moon
  */
 input[type='radio'] { transform: scale(2); }
+input[type='submit'] { transform: scale(4); }
