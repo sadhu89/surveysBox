@@ -13,7 +13,12 @@
  *= require_tree .
  *= require_self
  *= require reveal
- *= require reveal-theme/moon
+ *= require reveal-theme/default
  */
 input[type='radio'] { transform: scale(2); }
 input[type='submit'] { transform: scale(4); }
+.logo { 
+	transform: scale(0.5); 
+	margin-left: -80px !important;
+    margin-top: -20px !important; 
+}
