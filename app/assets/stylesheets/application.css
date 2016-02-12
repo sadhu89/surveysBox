@@ -15,3 +15,4 @@
  *= require reveal
  *= require reveal-theme/moon
  */
+input[type='radio'] { transform: scale(2); }
