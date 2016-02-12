@@ -16,7 +16,7 @@
  *= require reveal-theme/default
  */
 input[type='radio'] { transform: scale(2); }
-input[type='submit'] { transform: scale(4); }
+input[type='submit'] { transform: scale(5); }
 .logo { 
 	transform: scale(0.4); 
 	margin-left: -100px !important;
