@@ -13,10 +13,10 @@
  *= require_tree .
  *= require_self
  *= require reveal
- *= require reveal-theme/default
+ *= require reveal-theme/sky
  */
 input[type='radio'] { transform: scale(2); }
-input[type='submit'] { transform: scale(5); }
+.submit-button { transform: scale(5); }
 .logo { 
 	transform: scale(0.4); 
 	margin-left: -100px !important;
