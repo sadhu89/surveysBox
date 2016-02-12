@@ -1,23 +1,38 @@
-<h1>Quiz Box</h1>
-<% if @test_submission.nil? %>
-	No hay ningun test asignado
-<% else %>
-	<%= form_for(@test_submission) do |f|%>
-		<% @test.subjects.each do |subject|%>
-			<p><%=subject.name%></p>
-			<p><iframe width="560" height="315" src="https://www.youtube.com/embed/<%=subject.video_url%>" frameborder="0" allowfullscreen></iframe></p>
-			<% subject.questions.each do |question|%>
-				<p><%=question.body%></p>
-				<%=f.fields_for :responses, @test_submission.responses.new do |ff|%>
-					<%=ff.hidden_field :subject_id, :value => subject.id%>
-					<%=ff.hidden_field :question_id, :value => question.id%>
-					<% question.alternatives.each do |alternative|%>
-						<p><%=ff.radio_button :content, alternative.content %>
-						<%=alternative.content%></p>
-					<%end%>
+
+<div class="reveal">
+		<h6>Quiz Box</h6>
+		<% if @test_submission.nil? %>
+			No hay ningun test asignado
+		<% else %>
+			<%= form_for(@test_submission) do |f|%>
+				
+    				<div class="slides">
+						<% @test.subjects.each do |subject|%>
+							<section>
+								<p><%=subject.name%></p>
+								<p><iframe width="560" height="315" src="https://www.youtube.com/embed/<%=subject.video_url%>" frameborder="0" allowfullscreen></iframe></p>
+							</section>
+							<% subject.questions.each do |question|%>
+								<section>
+									<p><%=question.body%></p>
+									<%=f.fields_for :responses, @test_submission.responses.new do |ff|%>
+										<%=ff.hidden_field :subject_id, :value => subject.id%>
+										<%=ff.hidden_field :question_id, :value => question.id%>
+										<% question.alternatives.each do |alternative|%>
+											<p><%=ff.radio_button :content, alternative.content %>
+											<%=alternative.content%></p>
+										<%end%>
+									<%end%>
+								</section>
+							<%end%>
+						<%end%>
+						<section>
+						<%=  f.submit "Enviar"%>
+						</section>
 				<%end%>
-			<%end%>
+			</div>
 		<%end%>
-		<%=  f.submit "Enviar"%>
-	<%end%>
-<%end%>
+</div>
+<script>
+    Reveal.initialize();
+</script>
