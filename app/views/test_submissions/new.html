@@ -15,6 +15,7 @@
 							<% subject.questions.each do |question|%>
 								<section>
 									<p><%=question.body%></p>
+									<br>
 									<%=f.fields_for :responses, @test_submission.responses.new do |ff|%>
 										<%=ff.hidden_field :subject_id, :value => subject.id%>
 										<%=ff.hidden_field :question_id, :value => question.id%>
